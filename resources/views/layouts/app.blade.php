@@ -17,7 +17,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900" >
         <x-banner />
         @include('layouts.partials.header')
         <main class="container mx-auto px-5 flex flex-grow">
