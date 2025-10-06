@@ -40,4 +40,12 @@ class Post extends Model
 {
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
+
+    public function scopePublished($query){
+        return $query->where('is_published',1);
+    }
+
+    public function scopeFeatured($query){
+        return $query->where('is_featured',1);
+    }
 }
