@@ -17,14 +17,21 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $published_at=$this->faker->dateTimeBetween('-1 Week', '+1 week');
+        $today = new \DateTime();
+        $is_published=false;
+        if($today <= $published_at){
+            $is_published=true;
+        }
         return [
             'user_id' => User::factory(),
             'title' => $this->faker->sentence(),
             'slug' => $this->faker->slug(3),
             'image' => $this->faker->imageUrl(),
             'body' => $this->faker->paragraph(10),
-            'published_at' => $this->faker->dateTimeBetween('-1 Week', '+1 week'),
-            'featured' => $this->faker->boolean(10)
+            'published_at' => $published_at,
+            'is_published' => $is_published,
+            'is_featured' => $this->faker->boolean(10)
         ];
     }
 }
