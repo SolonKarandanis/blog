@@ -1,54 +1,21 @@
-<header class="flex items-center justify-between py-3 px-6 border-b border-gray-100">
-    <div id="header-left" class="flex items-center">
+<nav class="flex items-center justify-between py-3 px-6 border-b border-gray-100">
+    <div id="nav-left" class="flex items-center">
         <a href="{{route('home')}}">
-            <x-application-logo />
+            <x-application-mark class="block h-9 w-auto" />
         </a>
         <div class="top-menu ml-10">
-            <ul class="flex space-x-4">
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-red-900 text-sm text-red-500"
-                       href="http://127.0.0.1:8000">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-red-500 text-sm text-gray-500"
-                       href="http://127.0.0.1:8000/blog">
-                        Blog
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-red-500 text-sm text-gray-500"
-                       href="http://127.0.0.1:8000/blog">
-                        About Us
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-red-500 text-sm text-gray-500"
-                       href="http://127.0.0.1:8000/blog">
-                        Contact Us
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-red-500 text-sm text-gray-500"
-                       href="http://127.0.0.1:8000/blog">
-                        Terms
-                    </a>
-                </li>
-
-            </ul>
+            <div class="flex space-x-4">
+                <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                    {{ __('Home') }}
+                </x-nav-link>
+            </div>
         </div>
     </div>
-    <div id="header-right" class="flex items-center md:space-x-6">
-        @guest
-            @include('layouts.partials.header-right-guest')
-        @endguest
+    <div id="nav-right" class="flex items-center md:space-x-6">
         @auth
             @include('layouts.partials.header-right-auth')
+        @else
+            @include('layouts.partials.header-right-guest')
         @endauth
     </div>
-</header>
+</nav>
