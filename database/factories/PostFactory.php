@@ -20,7 +20,7 @@ class PostFactory extends Factory
         $published_at=$this->faker->dateTimeBetween('-1 Week', '+1 week');
         $today = new \DateTime();
         $is_published=false;
-        if($today <= $published_at){
+        if($today >= $published_at){
             $is_published=true;
         }
         return [
