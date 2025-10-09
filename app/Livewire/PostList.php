@@ -17,6 +17,7 @@ class PostList extends Component
 
     public function setSort($value){
         $this->sort=($value === 'desc')?'desc':'asc';
+        $this->resetPage();
     }
     #[Computed()]
     public function posts(){
