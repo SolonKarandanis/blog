@@ -1,9 +1,20 @@
 <div class=" px-3 lg:px-7 py-6">
-    <div class="flex justify-between items-center border-b border-gray-100">
-        <div class="flex items-center space-x-4 font-light ">
-            <button class="text-gray-900 dark:text-gray-200 py-4">Latest</button>
-            <button class="text-gray-900 dark:text-gray-200 py-4 border-b border-gray-700">Oldest</button>
+    <div class="border-b border-gray-100">
+        <div class="flex justify-between items-center mb-4">
+            <div class="flex items-center space-x-4 font-light">
+                <button
+                    class="{{$sort==='desc'? 'text-gray-900 dark:text-gray-100 border-b border-gray-400':'text-gray-500 dark:text-gray-300'}} py-4"
+                    wire:click="setSort('desc')">
+                    Latest
+                </button>
+                <button
+                    class="{{$sort==='asc'? 'text-gray-900 dark:text-gray-100 border-b border-gray-400':'text-gray-500 dark:text-gray-300'}} py-4"
+                    wire:click="setSort('asc')">
+                    Oldest
+                </button>
+            </div>
         </div>
+
     </div>
     <div class="py-4">
         @foreach($this->posts as $post)
