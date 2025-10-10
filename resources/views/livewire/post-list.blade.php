@@ -1,6 +1,11 @@
 <div class=" px-3 lg:px-7 py-6">
     <div class="border-b border-gray-100">
         <div class="flex justify-between items-center mb-4">
+            <div>
+                @if($search)
+                    <span class="text-gray-900 dark:text-gray-100">Searching '{{$search}}'</span>
+                @endif
+            </div>
             <div class="flex items-center space-x-4 font-light">
                 <button
                     class="{{$sort==='desc'? 'text-gray-900 dark:text-gray-100 border-b border-gray-400':'text-gray-500 dark:text-gray-300'}} py-4"
