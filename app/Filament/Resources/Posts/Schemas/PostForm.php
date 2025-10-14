@@ -2,12 +2,18 @@
 
 namespace App\Filament\Resources\Posts\Schemas;
 
+use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class PostForm
 {
@@ -15,23 +21,39 @@ class PostForm
     {
         return $schema
             ->components([
-                TextInput::make('user_id')
-                    ->required()
-                    ->numeric(),
-                FileUpload::make('image')
-                    ->image(),
-                TextInput::make('title')
-                    ->required(),
-                TextInput::make('slug')
-                    ->required(),
-                Textarea::make('body')
-                    ->required()
-                    ->columnSpanFull(),
-                DateTimePicker::make('published_at'),
-                Toggle::make('is_published')
-                    ->required(),
-                Toggle::make('is_featured')
-                    ->required(),
+                Section::make('Main Content')->schema(
+                    [
+                        TextInput::make('title')
+                            ->live()
+                            ->required()->minLength(1)->maxLength(150)
+                            ->afterStateUpdated(function (string $operation, $state, Set $set) {
+                                if ($operation === 'edit') {
+                                    return;
+                                }
+
+                                $set('slug', Str::slug($state));
+                            }),
+                        TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
+                        RichEditor::make('body')
+                            ->required()
+                            ->fileAttachmentsDirectory('posts/images')->columnSpanFull()
+                    ]
+                )->columns(2),
+                Section::make('Meta')->schema(
+                    [
+                        FileUpload::make('image')->image()->directory('posts/thumbnails'),
+                        DateTimePicker::make('published_at')->nullable(),
+                        Checkbox::make('featured'),
+                        Select::make('user_id')
+                            ->relationship('author', 'name')
+                            ->searchable()
+                            ->required(),
+                        Select::make('categories')
+                            ->multiple()
+                            ->relationship('categories', 'title')
+                            ->searchable(),
+                    ]
+                ),
             ]);
     }
 }

@@ -47,12 +47,27 @@ class Post extends Model
 
     protected $appends=['published_at_diff'];
 
+    protected $fillable = [
+        'user_id',
+        'title',
+        'slug',
+        'image',
+        'body',
+        'published_at',
+        'featured',
+    ];
+
     protected $casts=[
         'published_at'=>'datetime',
     ];
 
     public function author():BelongsTo{
         return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
 
     public function scopePublished($query){

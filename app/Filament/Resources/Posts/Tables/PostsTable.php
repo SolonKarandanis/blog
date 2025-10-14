@@ -25,11 +25,16 @@ class PostsTable
                     ->sortable(),
                 ImageColumn::make('image'),
                 TextColumn::make('title')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('slug')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('author.name')
+                    ->sortable()
                     ->searchable(),
                 TextColumn::make('published_at')
-                    ->dateTime()
+                    ->date('Y-m-d')
                     ->sortable(),
                 IconColumn::make('is_published')
                     ->boolean(),
