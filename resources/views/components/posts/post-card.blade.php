@@ -1,5 +1,5 @@
 @props(['post'])
-<div>
+<div {{$attributes}}>
     <a href="#">
         <div>
             <img class="w-full rounded-xl"
@@ -7,7 +7,7 @@
         </div>
     </a>
     <div class="mt-3">
-        <div class="flex items-center mb-2">
+        <div class="flex items-center mb-2 gap-x-2">
             @foreach($post->categories as $category)
                 <x-badge wire:navigate href="{{route('posts.index',['$category'=>$category->slug])}}"
                          textColor="{{$category->text_color}}"

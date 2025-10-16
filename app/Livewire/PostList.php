@@ -22,6 +22,9 @@ class PostList extends Component
     #[Url()]
     public $category='';
 
+    #[Url()]
+    public $popular = false;
+
     public function setSort($value){
         $this->sort=($value === 'desc')?'desc':'asc';
         $this->resetPage();
@@ -31,19 +34,36 @@ class PostList extends Component
     public function updateSearch($search){
         $this->search=$search;
     }
+
+    public function clearFilters()
+    {
+        $this->search = '';
+        $this->category = '';
+        $this->resetPage();
+    }
+
     #[Computed()]
     public function posts(){
-        $posts= Post::published()
-            ->when(Category::where('slug',$this->category)->first(),function($query){
+        return Post::published()
+            ->when($this->activeCategory,function($query){
                 return $query->withCategory($this->category);
             })
-            ->with(['categories'])
             ->where('title', 'like', '%'.$this->search.'%')
             ->orderBy('published_at', $this->sort)
-            ->with(['author'])
+            ->with(['author','categories'])
             ->paginate(5);
-        return $posts;
     }
+
+    #[Computed()]
+    public function activeCategory()
+    {
+        if ($this->category === null || $this->category === '') {
+            return null;
+        }
+
+        return Category::where('slug', $this->category)->first();
+    }
+
     public function render()
     {
 
