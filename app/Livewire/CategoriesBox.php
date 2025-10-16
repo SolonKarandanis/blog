@@ -11,7 +11,12 @@ class CategoriesBox extends Component
 
     #[Computed()]
     public function categories(){
-        return Category::limit(5)->get();
+        return Category::query()
+            ->whereHas('posts',function($query){
+                $query->published();
+            })
+            ->limit(5)
+            ->get();
     }
 
     public function render()

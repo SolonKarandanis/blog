@@ -37,8 +37,10 @@ class PostsTable
                     ->date('Y-m-d')
                     ->sortable(),
                 IconColumn::make('is_published')
+                    ->sortable()
                     ->boolean(),
                 IconColumn::make('is_featured')
+                    ->sortable()
                     ->boolean(),
                 TextColumn::make('deleted_at')
                     ->dateTime()

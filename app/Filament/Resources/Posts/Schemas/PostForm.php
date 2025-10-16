@@ -43,7 +43,7 @@ class PostForm
                     [
                         FileUpload::make('image')->image()->directory('posts/thumbnails'),
                         DateTimePicker::make('published_at')->nullable(),
-                        Checkbox::make('featured'),
+                        Checkbox::make('is_featured'),
                         Select::make('user_id')
                             ->relationship('author', 'name')
                             ->searchable()
