@@ -10,10 +10,12 @@ class HomeController extends Controller
     {
         $featuredPosts = Post::featured()
             ->published()
+            ->with(['categories'])
             ->latest('published_at')
             ->limit(3)
             ->get();
         $latestPosts = Post::published()
+            ->with(['categories'])
             ->latest('published_at')
             ->limit(9)
             ->get();

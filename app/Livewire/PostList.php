@@ -33,14 +33,16 @@ class PostList extends Component
     }
     #[Computed()]
     public function posts(){
-        return Post::published()
+        $posts= Post::published()
             ->when(Category::where('slug',$this->category)->first(),function($query){
                 return $query->withCategory($this->category);
             })
+            ->with(['categories'])
             ->where('title', 'like', '%'.$this->search.'%')
             ->orderBy('published_at', $this->sort)
             ->with(['author'])
             ->paginate(5);
+        return $posts;
     }
     public function render()
     {
