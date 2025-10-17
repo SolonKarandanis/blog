@@ -12,7 +12,7 @@
                     </x-badge>
                 @endif
                 @if($search)
-                    <span class="text-gray-900 dark:text-gray-100">Searching '{{$search}}'</span>
+                    <span class="text-gray-900 dark:text-gray-100 font-bold">Searching '{{$search}}'</span>
                 @endif
             </div>
             <div class="flex items-center space-x-4 font-light">
