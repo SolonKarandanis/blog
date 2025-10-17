@@ -3,11 +3,13 @@
 namespace App\Livewire;
 
 use App\Models\Post;
+use Livewire\Attributes\Reactive;
 use Livewire\Component;
 
 class LikeButton extends Component
 {
 
+    #[Reactive]
     public Post $post;
 
     public function mount(Post $post){
