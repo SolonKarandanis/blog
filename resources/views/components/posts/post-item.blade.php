@@ -10,10 +10,7 @@
         </div>
         <div class="col-span-8">
             <div class="article-meta flex py-1 text-sm items-center">
-                <img class="w-7 h-7 rounded-full mr-3"
-                     src="{{$post->author->profile_photo_url}}"
-                     alt="{{$post->author->name}}">
-                <span class="mr-1 text-xs text-gray-900 dark:text-gray-200">{{$post->author->name}}</span>
+                <x-posts.author :author="$post->author" />
                 <span class="text-gray-900 dark:text-gray-200 text-xs">. {{$post->published_at_diff}}</span>
             </div>
             <h2 class="text-xl font-bold text-gray-900 dark:text-gray-200">
@@ -28,11 +25,7 @@
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex gap-x-2">
                     @foreach($post->categories as $category)
-                        <x-badge wire:navigate href="{{route('posts.index',['$category'=>$category->slug])}}"
-                            textColor="{{$category->text_color}}"
-                            bgColor="{{$category->bg_color}}" >
-                            {{$category->slug}}
-                        </x-badge>
+                        <x-posts.category-badge :category="$category" />
                     @endforeach
                     <div class="flex items-center space-x-4">
                         <span class="text-gray-900 dark:text-gray-200 text-sm">{{$post->getReadingTime()}} min read</span>
