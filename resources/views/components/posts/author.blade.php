@@ -1,5 +1,24 @@
-@props(['author'])
-<img class="w-7 h-7 rounded-full mr-3"
+@props(['author','size'=>'md'])
+@php
+
+    $imageSize = match ($size ?? null) {
+        'xs' => 'w-7 h-7',
+        'sm' => 'w-9 h-9',
+        'md' => 'w-10 h-10',
+        'lg' => 'w-14 h-14',
+        default => 'w-10 h-10',
+    };
+
+    $textSize = match ($size ?? null) {
+        'xs' => 'text-xs',
+        'sm' => 'text-sm',
+        'md' => 'text-base',
+        'lg' => 'text-xl',
+        default => 'text-base',
+    };
+
+@endphp
+<img class="{{ $imageSize }} rounded-full mr-3"
      src="{{$author->profile_photo_url}}"
      alt="{{$author->name}}">
-<span class="mr-1 text-xs text-gray-900 dark:text-gray-200">{{$author->name}}</span>
+<span class="mr-1 {{$textSize}} text-gray-900 dark:text-gray-200">{{$author->name}}</span>
