@@ -44,7 +44,8 @@ class PostList extends Component
 
     #[Computed()]
     public function posts(){
-        $posts=Post::published()
+        $posts=Post::query()
+            ->published()
             ->withCount('likes')
             ->withExists(['likes as is_post_liked' => function ($query) {
                 $query->where('user_id', auth()->id());
@@ -56,7 +57,6 @@ class PostList extends Component
             ->orderBy('published_at', $this->sort)
             ->with(['author','categories'])
             ->paginate(5);
-//        dd($posts);
         return $posts;
     }
 
