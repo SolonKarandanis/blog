@@ -2,7 +2,7 @@
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
-            <a href="" >
+            <a href="{{route('posts.show',$post->slug)}}" >
                 <img class="mw-100 mx-auto rounded-xl"
                      src="{{$post->getThumbnailImage()}}"
                      alt="thumbnail">
@@ -17,7 +17,7 @@
                 <span class="text-gray-900 dark:text-gray-200 text-xs">. {{$post->published_at_diff}}</span>
             </div>
             <h2 class="text-xl font-bold text-gray-900 dark:text-gray-200">
-                <a href="http://127.0.0.1:8000/blog/first%20post" >
+                <a href="{{route('posts.show',$post->slug)}}" >
                     {{$post->title}}
                 </a>
             </h2>

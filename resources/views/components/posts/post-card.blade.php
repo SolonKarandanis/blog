@@ -1,6 +1,6 @@
 @props(['post'])
 <div {{$attributes}}>
-    <a href="#">
+    <a href="{{route('posts.show',$post->slug)}}">
         <div>
             <img class="w-full rounded-xl"
                  src="{{$post->getThumbnailImage()}}" alt="thumbnail">
@@ -17,7 +17,7 @@
             @endforeach
             <p class="text-gray-500 text-sm">{{$post->published_at}}</p>
         </div>
-        <a href="#" class="text-xl font-bold text-gray-900 dark:text-gray-200">
+        <a href="{{route('posts.show',$post->slug)}}" class="text-xl font-bold text-gray-900 dark:text-gray-200">
             {{$post->title}}
         </a>
     </div>
