@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,5 +25,26 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Comment extends Model
 {
-    //
+    protected $fillable = [
+        'user_id',
+        'post_id',
+        'body'
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
+
+    public function createdAtDiff():Attribute
+    {
+        return Attribute::make(
+            get:fn()=> $this->created_at->diffForHumans()
+        );
+    }
 }
