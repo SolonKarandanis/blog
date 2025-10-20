@@ -40,6 +40,18 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereUserId($value)
+ * @property-read \App\Models\User $author
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Category> $categories
+ * @property-read int|null $categories_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\User> $likes
+ * @property-read int|null $likes_count
+ * @property-read mixed $published_at_diff
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post featured()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post published()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post withCategory(string $category)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post withTrashed(bool $withTrashed = true)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post withoutTrashed()
  * @mixin \Eloquent
  */
 class Post extends Model

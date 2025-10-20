@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereTextColor($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Category whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Post> $posts
+ * @property-read int|null $posts_count
  * @mixin \Eloquent
  */
 class Category extends Model

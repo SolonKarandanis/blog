@@ -47,6 +47,9 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorRecoveryCodes($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereTwoFactorSecret($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Post> $likes
+ * @property-read int|null $likes_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User recent()
  * @mixin \Eloquent
  */
 class User extends Authenticatable
