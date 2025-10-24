@@ -1,4 +1,4 @@
-<x-app-layout title="Home Page">
+<x-app-layout title="Home Page" meta-description="Solon's blog about coding">
     <body class="font-light antialiased">
     @section('hero')
         <div class="w-full text-center py-32">

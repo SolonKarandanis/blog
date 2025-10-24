@@ -34,7 +34,9 @@ class PostForm
                         TextInput::make('slug')->required()->minLength(1)->unique(ignoreRecord: true)->maxLength(150),
                         RichEditor::make('body')
                             ->required()
-                            ->fileAttachmentsDirectory('posts/images')->columnSpanFull()
+                            ->fileAttachmentsDirectory('posts/images')->columnSpanFull(),
+                        TextInput::make('meta_title'),
+                        TextInput::make('meta_description'),
                     ]
                 )->columns(2),
                 Section::make('Meta')->schema(
