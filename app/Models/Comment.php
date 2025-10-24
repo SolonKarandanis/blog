@@ -21,6 +21,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment wherePostId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereUserId($value)
+ * @property-read mixed $created_at_diff
+ * @property-read \App\Models\Post $post
+ * @property-read \App\Models\User $user
  * @mixin \Eloquent
  */
 class Comment extends Model

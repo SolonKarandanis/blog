@@ -53,6 +53,12 @@ use Illuminate\Support\Str;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post withCategory(string $category)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post withTrashed(bool $withTrashed = true)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post withoutTrashed()
+ * @property string|null $meta_title
+ * @property string|null $meta_description
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereMetaDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereMetaTitle($value)
  * @mixin \Eloquent
  */
 class Post extends Model
@@ -70,6 +76,8 @@ class Post extends Model
         'body',
         'published_at',
         'featured',
+        'meta_title',
+        'meta_description',
     ];
 
     protected $casts=[

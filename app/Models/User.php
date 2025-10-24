@@ -51,6 +51,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Post> $likes
  * @property-read int|null $likes_count
  * @method static \Illuminate\Database\Eloquent\Builder<static>|User recent()
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Comment> $comments
+ * @property-read int|null $comments_count
  * @mixin \Eloquent
  */
 class User extends Authenticatable
