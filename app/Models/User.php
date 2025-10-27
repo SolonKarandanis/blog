@@ -4,6 +4,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Traits\RecentRecords;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -56,7 +58,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read int|null $comments_count
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, HasApiTokens, RecentRecords, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, HasRoles;
 
@@ -116,5 +118,10 @@ class User extends Authenticatable
 
     public function comments():HasMany{
         return $this->hasMany(Comment::class);
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return $this->hasRole('admin');
     }
 }
