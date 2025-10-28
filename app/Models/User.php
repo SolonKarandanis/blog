@@ -62,6 +62,17 @@ class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, HasApiTokens, RecentRecords, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, HasRoles;
 
+    const ROLE_ADMIN = 'role.admin';
+    const ROLE_EDITOR = 'role.editor';
+    const ROLE_USER = 'role.user';
+    const ROLE_DEFAULT = self::ROLE_USER;
+
+    const ROLES = [
+        self::ROLE_ADMIN => 'role.admin',
+        self::ROLE_EDITOR => 'role.editor',
+        self::ROLE_USER => 'role.user',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -122,6 +133,6 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasRole('admin');
+        return $this->hasRole(self::ROLE_ADMIN);
     }
 }

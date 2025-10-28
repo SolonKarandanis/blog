@@ -20,7 +20,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'skarandanis@gmail.com',
             'password' => bcrypt('7ujm&UJM'),
         ]);
-        $adminRole =Role::create(['name' => 'admin']);
+        $adminRole =Role::create(['name' => 'role.admin']);
+        Role::create(['name' => 'role.editor']);
+        Role::create(['name' => 'role.user']);
         $adminUser->assignRole($adminRole);
 
         Post::factory(100)->create();
