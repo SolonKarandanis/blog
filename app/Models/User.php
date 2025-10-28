@@ -62,9 +62,9 @@ class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, HasApiTokens, RecentRecords, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, HasRoles;
 
-    const ROLE_ADMIN = 'role.admin';
-    const ROLE_EDITOR = 'role.editor';
-    const ROLE_USER = 'role.user';
+    const ROLE_ADMIN = 'Admin';
+    const ROLE_EDITOR = 'Editor';
+    const ROLE_USER = 'User';
     const ROLE_DEFAULT = self::ROLE_USER;
 
     const ROLES = [
@@ -133,6 +133,6 @@ class User extends Authenticatable implements FilamentUser
 
     public function canAccessPanel(Panel $panel): bool
     {
-        return $this->hasRole(self::ROLE_ADMIN);
+        return $this->hasRole('role.admin');
     }
 }

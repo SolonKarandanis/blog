@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Users\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -34,6 +35,10 @@ class UserForm
                     ->hiddenOn('edit')
                     ->required()
                     ->visibleOn('create'),
+                Select::make('role')
+                    ->multiple()
+                    ->relationship('roles', 'label')
+                    ->searchable(),
             ]);
     }
 }
