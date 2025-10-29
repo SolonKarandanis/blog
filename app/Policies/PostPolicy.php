@@ -49,6 +49,14 @@ class PostPolicy
     }
 
     /**
+     * Determine whether the user can bulk delete models.
+     */
+    public function deleteAny(User $user): bool
+    {
+        return $user->isAdmin();
+    }
+
+    /**
      * Determine whether the user can restore the model.
      */
     public function restore(User $user, Post $post): bool
@@ -57,9 +65,25 @@ class PostPolicy
     }
 
     /**
+     * Determine whether the user can bulk restore models.
+     */
+    public function restoreAny(User $user): bool
+    {
+        return $user->isAdmin();
+    }
+
+    /**
      * Determine whether the user can permanently delete the model.
      */
     public function forceDelete(User $user, Post $post): bool
+    {
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can permanently bulk delete models.
+     */
+    public function forceDeleteAny(User $user): bool
     {
         return $user->isAdmin();
     }
