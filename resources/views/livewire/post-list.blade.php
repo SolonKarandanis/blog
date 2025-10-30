@@ -16,6 +16,8 @@
                 @endif
             </div>
             <div class="flex items-center space-x-4 font-light">
+                <x-checkbox wire:model.live="popular" />
+                <x-label>Popular</x-label>
                 <button
                     class="{{$sort==='desc'? 'text-gray-900 dark:text-gray-100 border-b border-gray-400':'text-gray-500 dark:text-gray-300'}} py-4"
                     wire:click="setSort('desc')">
