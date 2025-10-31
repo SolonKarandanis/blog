@@ -25,14 +25,14 @@
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex gap-x-2">
                     @foreach($post->categories as $category)
-                        <x-posts.category-badge :category="$category" />
+                        <x-posts.category-badge :key="$category->id" :category="$category" />
                     @endforeach
                     <div class="flex items-center space-x-4">
                         <span class="text-gray-900 dark:text-gray-200 text-sm">{{$post->getReadingTime()}} min read</span>
                     </div>
                 </div>
                 <div>
-                    <livewire:like-button :key="$post->id" :post="$post" />
+                    <livewire:like-button :key="'like-'.$post->id" :post="$post" />
                 </div>
             </div>
         </div>
