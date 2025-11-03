@@ -39,6 +39,7 @@ class PostList extends Component
     {
         $this->search = '';
         $this->category = '';
+        $this->popular = false;
         $this->resetPage();
     }
 
