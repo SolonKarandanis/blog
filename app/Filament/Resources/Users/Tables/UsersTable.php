@@ -23,6 +23,7 @@ class UsersTable
                 TextColumn::make('email_verified_at')
                     ->dateTime()
                     ->sortable(),
+                TextColumn::make('roles.label'),
                 TextColumn::make('current_team_id')
                     ->numeric()
                     ->sortable(),
