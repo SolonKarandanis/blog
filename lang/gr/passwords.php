@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'reset' => 'Your password has been reset.',
-    'sent' => 'We have emailed your password reset link.',
-    'throttled' => 'Please wait before retrying.',
+    'reset' => 'Ο κωδικός πρόσβασής σας έχει επαναφερθεί.',
+    'sent' => 'Σας έχουμε στείλει μέσω email τον σύνδεσμο επαναφοράς κωδικού πρόσβασης.',
+    'throttled' => 'Παρακαλώ περιμένετε πριν προσπαθήσετε ξανά.',
     'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that email address.",
+    'user' => "Δεν μπορούμε να βρούμε χρήστη με αυτήν τη διεύθυνση ηλεκτρονικού ταχυδρομείου.",
 
 ];
