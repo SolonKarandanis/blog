@@ -7,7 +7,7 @@
             </h1>
             <p class="text-gray-500 text-lg mt-1">{{__('home.hero.desc')}}</p>
             <a class="px-3 py-2 text-lg text-white bg-gray-800 rounded mt-5 inline-block"
-               href="http://127.0.0.1:8000/blog">{{__('home.hero.cta')}}</a>
+               href="{{route('posts.index')}}">{{__('home.hero.cta')}}</a>
         </div>
     @endsection
 
@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <a class="mt-10 block text-center text-lg text-red-500 font-semibold"
-                   href="http://127.0.0.1:8000/blog">{{__('home.more_posts')}}</a>
+                   href="{{route('posts.index')}}">{{__('home.more_posts')}}</a>
             </div>
             <hr>
 
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <a class="mt-10 block text-center text-lg text-red-500 font-semibold"
-               href="http://127.0.0.1:8000/blog">{{__('home.more_posts')}}</a>
+               href="{{route('posts.index')}}">{{__('home.more_posts')}}</a>
         </div>
     </body>
 </x-app-layout>

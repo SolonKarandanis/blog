@@ -2,13 +2,13 @@
 
 return [
 
-    'featured_posts' => 'Featured Posts',
-    'latest_posts' => 'Latest Posts',
-    'more_posts' => 'More Posts',
+    'featured_posts' => 'Επιλεγμένες δημοσιεύσεις',
+    'latest_posts' => 'Τελευταίες δημοσιεύσεις',
+    'more_posts' => 'Περισσότερες δημοσιεύσεις',
 
     'hero' => [
-        'title' => 'Welcome to',
-        'desc' => 'Best Blog in the universe',
-        'cta' => 'Start Reading'
+        'title' => 'Καλώς ορίσατε στο',
+        'desc' => 'Το καλύτερο ιστολόγιο στον κόσμο',
+        'cta' => 'Ξεκινήστε να διαβάζετε'
     ]
 ];

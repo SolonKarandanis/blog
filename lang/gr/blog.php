@@ -2,14 +2,14 @@
 
 return [
 
-    'containing' => 'Containing',
+    'containing' => 'Περιέχει',
 
-    'popular' => 'Popular',
-    'latest' => 'Latest',
-    'oldest' => 'Oldest',
+    'popular' => 'Δημοφιλή',
+    'latest' => 'Πρόσφατα',
+    'oldest' => 'Παλιά',
 
-    'search' => 'Search',
-    'search_placeholder' => 'Search ...',
-    'recommended_topics' => 'Recommended Topics',
-    'min_read' => 'Min read'
+    'search' => 'Αναζήτηση',
+    'search_placeholder' => 'Αναζήτηση ...',
+    'recommended_topics' => 'Προτεινόμενα θέματα',
+    'min_read' => 'Ελάχιστη ανάγνωση'
 ];

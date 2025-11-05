@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'home' => 'Home',
-    'blog' => 'Blog',
-    'admin' => 'Admin',
-    'profile' => 'Profile',
-    'login' => 'Login',
-    'register' => 'Register',
-    'logout' => 'Log out',
-    'manage_account' => 'Manage Account',
+    'home' => 'Αρχική σελίδα',
+    'blog' => 'Ιστολόγιο',
+    'admin' => 'Σελίδα διαχειριστή',
+    'profile' => 'Προφίλ',
+    'login' => 'Σύνδεση',
+    'register' => 'Εγγραφή',
+    'logout' => 'Αποσύνδεση',
+    'manage_account' => 'Διαχείριση λογαριασμού',
 ];
