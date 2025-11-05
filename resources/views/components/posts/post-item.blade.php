@@ -28,7 +28,7 @@
                         <x-posts.category-badge :key="$category->id" :category="$category" />
                     @endforeach
                     <div class="flex items-center space-x-4">
-                        <span class="text-gray-900 dark:text-gray-200 text-sm">{{$post->getReadingTime()}} min read</span>
+                        <span class="text-gray-900 dark:text-gray-200 text-sm">{{$post->getReadingTime()}} {{__('blog.min_read')}}</span>
                     </div>
                 </div>
                 <div>
