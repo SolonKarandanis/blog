@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\PostView;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -25,14 +26,22 @@ class PostController extends Controller
             ->firstOrFail();
 
         $user= $request->user();
-        PostView::create([
-            'ip_address' => $request->ip(),
-            'user_agent' => $request->userAgent(),
-            'user_id' => $user?->id,
-            'post_id' => $post->id,
-        ]);
-        return view('posts.show', [
+        $token = (string) Str::uuid();
+
+        $response = response(view('posts.show', [
             'post' => $post
-        ]);
+        ]));
+
+        if (!$request->cookie('viewed_post_' . $post->id)) {
+            PostView::create([
+                'ip_address' => $request->ip(),
+                'user_agent' => $request->userAgent(),
+                'user_id' => $user?->id,
+                'post_id' => $post->id,
+            ]);
+            $response->cookie('viewed_post_' . $post->id, $token, 60);
+        }
+
+        return $response;
     }
 }
