@@ -50,7 +50,6 @@
                 <a class="mt-10 block text-center text-lg text-red-500 font-semibold"
                    href="{{route('posts.index')}}">{{__('home.more_posts')}}</a>
             </div>
-            <hr>
 
         </div>
     </body>
