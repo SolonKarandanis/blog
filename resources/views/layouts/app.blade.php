@@ -20,6 +20,7 @@
 
         <!-- Styles -->
         @livewireStyles
+        @livewireScripts
     </head>
     <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900" >
         <x-banner />
@@ -30,6 +31,5 @@
         </main>
         @include('layouts.partials.footer')
         @stack('modals')
-        @livewireScripts
     </body>
 </html>

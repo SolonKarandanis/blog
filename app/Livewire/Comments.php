@@ -4,7 +4,9 @@ namespace App\Livewire;
 
 use App\Models\Comment;
 use App\Models\Post;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,26 +16,31 @@ class Comments extends Component
 
     public Post $post;
 
-    protected $listeners = [
-        'commentCreated' => '$refresh',
-        'commentDeleted' => '$refresh',
-    ];
-
     public function mount(Post $post){
         $this->post = $post;
     }
 
-    #[Computed()]
+    #[On('commentCreated')]
+    #[On('commentDeleted')]
+    #[On('commentUpdated')]
+    public function forceRefresh()
+    {
+        // This will re-render the component
+    }
+
     public function comments(){
         return Comment::query()
             ->where('post_id', $this->post->id)
             ->whereNull('parent_id')
+            ->with(['user'])
             ->orderByDesc('created_at')
             ->paginate(5);
     }
 
     public function render()
     {
-        return view('livewire.comments');
+        return view('livewire.comments', [
+            'comments' => $this->comments()
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Comment;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 
 class CommentItem extends Component
@@ -10,6 +11,9 @@ class CommentItem extends Component
     public Comment $comment;
     public bool $editing = false;
     public bool $replying = false;
+
+    #[Rule('required|min:3|max:200')]
+    public string $editedBody;
 
     protected $listeners = [
         'cancelEditing' => 'cancelEditing',
@@ -19,7 +23,7 @@ class CommentItem extends Component
 
     public function mount(Comment $comment): void
     {
-        $this->$comment = $comment;
+        $this->comment = $comment;
     }
 
     public function deleteComment(): void
@@ -32,15 +36,25 @@ class CommentItem extends Component
             response('You are not allowed to perform this action', 403);
         }
 
-        $id = $this->comment->id;
-
         $this->comment->delete();
-        $this->dispatch('commentDeleted', $id);
+        $this->dispatch('commentDeleted');
     }
 
     public function startCommentEdit(): void
     {
+        $this->editedBody = $this->comment->body;
         $this->editing = true;
+    }
+
+    public function updateComment()
+    {
+        $this->validateOnly('editedBody');
+
+        $this->comment->body = $this->editedBody;
+        $this->comment->save();
+
+        $this->editing = false;
+        $this->dispatch('commentUpdated');
     }
 
     public function cancelEditing(): void

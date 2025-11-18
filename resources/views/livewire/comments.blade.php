@@ -3,8 +3,8 @@
     <livewire:comment-create :post="$post" wire:key="comment-create-{{ $post->id }}" />
 
     <div class="px-3 py-2 mt-5 user-comments">
-        @forelse($this->comments as $comment)
-            <livewire:comment-item :comment="$comment" wire:key="comment-{{$comment->id}}" />
+        @forelse($comments as $comment)
+            <livewire:comment-item :comment="$comment" />
         @empty
             <div class="text-center text-gray-900 dark:text-gray-200">
                 <span> No Comments Posted</span>
@@ -12,6 +12,6 @@
         @endforelse
     </div>
     <div class="my-2">
-        {{ $this->comments->links() }}
+        {{ $comments->links() }}
     </div>
 </div>
