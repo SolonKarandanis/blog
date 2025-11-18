@@ -22,13 +22,14 @@ class CommentItem extends Component
         $this->$comment = $comment;
     }
 
-    public function deleteComment(){
+    public function deleteComment(): void
+    {
         $user= auth()->user();
         if(!$user){
-            return $this->redirect('/login');
+            $this->redirect('/login');
         }
         if ($this->comment->user_id != $user->id) {
-            return response('You are not allowed to perform this action', 403);
+            response('You are not allowed to perform this action', 403);
         }
 
         $id = $this->comment->id;
@@ -37,28 +38,28 @@ class CommentItem extends Component
         $this->emitUp('commentDeleted', $id);
     }
 
-    public function startCommentEdit()
+    public function startCommentEdit(): void
     {
         $this->editing = true;
     }
 
-    public function cancelEditing()
+    public function cancelEditing(): void
     {
         $this->editing = false;
         $this->replying = false;
     }
 
-    public function commentUpdated()
+    public function commentUpdated(): void
     {
         $this->editing = false;
     }
 
-    public function startReply()
+    public function startReply(): void
     {
         $this->replying = true;
     }
 
-    public function commentCreated()
+    public function commentCreated(): void
     {
         $this->replying = false;
     }

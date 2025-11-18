@@ -33,7 +33,8 @@ class Comment extends Model
     protected $fillable = [
         'user_id',
         'post_id',
-        'body'
+        'body',
+        'parent_id'
     ];
 
     public function user()
