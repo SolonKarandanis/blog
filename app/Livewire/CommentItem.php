@@ -16,8 +16,6 @@ class CommentItem extends Component
     public string $editedBody;
 
     protected $listeners = [
-        'cancelEditing' => 'cancelEditing',
-        'commentUpdated' => 'commentUpdated',
         'commentCreated' => 'commentCreated',
     ];
 
@@ -61,11 +59,6 @@ class CommentItem extends Component
     {
         $this->editing = false;
         $this->replying = false;
-    }
-
-    public function commentUpdated(): void
-    {
-        $this->editing = false;
     }
 
     public function startReply(): void
