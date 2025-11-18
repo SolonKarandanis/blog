@@ -35,7 +35,7 @@ class CommentItem extends Component
         $id = $this->comment->id;
 
         $this->comment->delete();
-        $this->emitUp('commentDeleted', $id);
+        $this->dispatch('commentDeleted', $id);
     }
 
     public function startCommentEdit(): void
