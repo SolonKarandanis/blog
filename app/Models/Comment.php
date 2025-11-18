@@ -24,6 +24,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read mixed $created_at_diff
  * @property-read \App\Models\Post $post
  * @property-read \App\Models\User $user
+ * @property int|null $parent_id
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereParentId($value)
  * @mixin \Eloquent
  */
 class Comment extends Model
