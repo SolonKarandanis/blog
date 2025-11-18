@@ -9,7 +9,7 @@ use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class PostComments extends Component
+class Comments extends Component
 {
     use WithPagination;
 
@@ -49,6 +49,6 @@ class PostComments extends Component
 
     public function render()
     {
-        return view('livewire.post-comments');
+        return view('livewire.comments');
     }
 }

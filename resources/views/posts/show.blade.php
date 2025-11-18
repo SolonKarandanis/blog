@@ -48,6 +48,6 @@
                     <x-posts.category-badge :category="$category" />
                 @endforeach
             </div>
-            <livewire:post-comments :key="'comments-'.$post->id" :post="$post" />
+            <livewire:comments :key="'comments-'.$post->id" :post="$post" />
         </article>
 </x-app-layout>
