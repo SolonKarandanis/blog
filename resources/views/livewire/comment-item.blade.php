@@ -29,7 +29,7 @@
     @if ($replying)
         <livewire:comment-create :post="$comment->post" :parent-comment="$comment"/>
     @endif
-    @if ($comment->childComments->count())
+    @if ($comment->child_comments_count)
         <div class="mt-4 ml-4">
             @foreach($comment->childComments as $childComment)
                 <livewire:comment-item :comment="$childComment" wire:key="comment-{{$childComment->id}}"/>
