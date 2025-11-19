@@ -26,4 +26,14 @@
             <a wire:click.prevent="deleteComment" href="#" class="text-sm text-red-600">Delete</a>
         @endif
     </div>
+    @if ($replying)
+        <livewire:comment-create :post="$comment->post" :parent-comment="$comment"/>
+    @endif
+    @if ($comment->childComments->count())
+        <div class="mt-4 ml-4">
+            @foreach($comment->childComments as $childComment)
+                <livewire:comment-item :comment="$childComment" wire:key="comment-{{$childComment->id}}"/>
+            @endforeach
+        </div>
+    @endif
 </div>
