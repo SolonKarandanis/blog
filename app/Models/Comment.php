@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
@@ -45,6 +47,14 @@ class Comment extends Model
     public function post()
     {
         return $this->belongsTo(Post::class);
+    }
+
+    public function parentComment():BelongsTo{
+        return $this->belongsTo(Comment::class, 'parent_id');
+    }
+
+    public function childrenComments():HasMany{
+        return $this->hasMany(Comment::class, 'parent_id')->orderBy('created_at', 'desc');
     }
 
     public function createdAtDiff():Attribute

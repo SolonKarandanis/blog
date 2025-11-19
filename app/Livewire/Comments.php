@@ -4,8 +4,6 @@ namespace App\Livewire;
 
 use App\Models\Comment;
 use App\Models\Post;
-use Illuminate\Support\Facades\Log;
-use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
