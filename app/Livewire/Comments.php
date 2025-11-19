@@ -30,7 +30,7 @@ class Comments extends Component
         return Comment::query()
             ->where('post_id', $this->post->id)
             ->whereNull('parent_id')
-            ->with(['user','childComments'])
+            ->with(['user','childComments','childComments.user'])
             ->orderByDesc('created_at')
             ->paginate(5);
     }
