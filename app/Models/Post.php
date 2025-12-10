@@ -119,10 +119,16 @@ class Post extends Model
         return $query;
     }
 
-    public function publishedAtDiff():Attribute
+    public function publishedAtDiff(): Attribute
     {
         return Attribute::make(
-            get:fn()=> $this->published_at->diffForHumans()
+            get: function () {
+                if ($this->published_at) {
+                    return $this->published_at->diffForHumans();
+                }
+
+                return null;
+            }
         );
     }
 
