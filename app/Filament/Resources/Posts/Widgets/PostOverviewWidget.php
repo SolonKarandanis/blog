@@ -20,7 +20,7 @@ class PostOverviewWidget extends StatsOverviewWidget
     {
         return [
             Stat::make('View Count',PostView::query()->where('post_id','=',$this->record->id)->count()),
-            Stat::make('Post Likes',Post::query()->where('post_id','=',$this->record->id)->withCount('likes')->count()),
+            Stat::make('Post Likes',Post::query()->where('id','=',$this->record->id)->withCount('likes')->count()),
         ];
     }
 }
