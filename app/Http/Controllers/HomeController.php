@@ -35,7 +35,10 @@ class HomeController extends Controller
                 ->select('posts.*',DB::raw('count(post_like.post_id) as like_count'))
                 ->published()
                 ->orderByDesc('like_count')
-                ->groupBy('posts.id')
+                ->groupBy([
+                    'posts.id',
+                    'posts.user_id'
+                ])
                 ->latest('published_at')
                 ->limit(5)
                 ->get();
