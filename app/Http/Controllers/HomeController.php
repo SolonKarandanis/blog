@@ -42,6 +42,12 @@ class HomeController extends Controller
                     'posts.title',
                     'posts.slug',
                     'posts.body',
+                    'posts.published_at',
+                    'posts.is_published',
+                    'posts.is_featured',
+                    'posts.deleted_at',
+                    'posts.created_at',
+                    'posts.updated_at',
                 ])
                 ->latest('published_at')
                 ->limit(5)
