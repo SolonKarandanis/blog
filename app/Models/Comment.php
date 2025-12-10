@@ -28,6 +28,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \App\Models\User $user
  * @property int|null $parent_id
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Comment whereParentId($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Comment> $childComments
+ * @property-read int|null $child_comments_count
+ * @property-read Comment|null $parentComment
  * @mixin \Eloquent
  */
 class Comment extends Model
