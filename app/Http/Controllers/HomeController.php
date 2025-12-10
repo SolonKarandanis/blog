@@ -37,7 +37,11 @@ class HomeController extends Controller
                 ->orderByDesc('like_count')
                 ->groupBy([
                     'posts.id',
-                    'posts.user_id'
+                    'posts.user_id',
+                    'posts.image',
+                    'posts.title',
+                    'posts.slug',
+                    'posts.body',
                 ])
                 ->latest('published_at')
                 ->limit(5)
