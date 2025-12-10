@@ -41,7 +41,11 @@ class PostForm
                 )->columns(2),
                 Section::make('Meta')->schema(
                     [
-                        FileUpload::make('image')->image()->directory('posts/thumbnails'),
+                        FileUpload::make('image')
+                            ->image()
+                            ->disk('public')
+                            ->directory('posts/thumbnails')
+                            ->visibility('public'),
                         DateTimePicker::make('published_at')->nullable(),
                         Checkbox::make('is_featured'),
                         Select::make('categories')
