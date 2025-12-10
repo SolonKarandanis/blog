@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
         Role::create(['name' => 'role.user','label'=>'User']);
         $adminUser->assignRole($adminRole);
 
-        Post::factory(100)->create();
-        Category::factory(5)->create();
+        if (! app()->environment('production')) {
+            Post::factory(100)->create();
+            Category::factory(5)->create();
+        }
     }
 }
