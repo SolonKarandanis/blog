@@ -78,6 +78,7 @@ class Post extends Model
         'featured',
         'meta_title',
         'meta_description',
+        'is_featured'
     ];
 
     protected $casts=[
