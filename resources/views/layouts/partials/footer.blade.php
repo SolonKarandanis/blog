@@ -1,9 +1,9 @@
 <footer class="text-sm space-x-4 flex items-center border-t border-gray-100 flex-wrap justify-center py-4 ">
     <div class="flex space-x-4">
         @foreach (config('app.supported_locales') as $locale => $data)
-            <a href="{{ route('locale', $locale) }}">
+            <x-nav-link href="{{ route('locale', $locale) }}" :active="app()->getLocale()=== $locale">
                 <x-dynamic-component :component="'flag-country-' . $data['icon']" class="w-6 h-6" />
-            </a>
+            </x-nav-link>
         @endforeach
     </div>
     <div class="flex space-x-4">

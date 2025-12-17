@@ -15,6 +15,13 @@
         </div>
     </div>
     <div id="nav-right" class="flex items-center md:space-x-6">
+        <div class="flex space-x-4">
+            @foreach (config('app.supported_locales') as $locale => $data)
+                <x-nav-link href="{{ route('locale', $locale) }}" :active="app()->getLocale()=== $locale">
+                    <x-dynamic-component :component="'flag-country-' . $data['icon']" class="w-6 h-6" />
+                </x-nav-link>
+            @endforeach
+        </div>
         @auth
             @include('layouts.partials.header-right-auth')
         @else
