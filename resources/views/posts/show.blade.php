@@ -40,7 +40,7 @@
             </div>
 
             <div class="article-content py-3 prose text-gray-900 dark:text-gray-200 text-lg text-justify">
-                {{$post->body}}
+                {!! $post->body !!}
             </div>
 
             <div class="flex items-center space-x-4 mt-10">
