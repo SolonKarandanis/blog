@@ -21,6 +21,7 @@ class PostInfolist
                 TextEntry::make('title'),
                 TextEntry::make('slug'),
                 TextEntry::make('body')
+                    ->html()
                     ->columnSpanFull(),
                 TextEntry::make('published_at')
                     ->dateTime()
