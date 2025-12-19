@@ -1,4 +1,4 @@
-<div class="comment [&:not(:last-child)]:border-b border-gray-100 py-5" wire:key="comment-{{$comment->id}}">
+<div class="comment [&:not(:last-child)]:border-b border-gray-100 py-5">
     <div class="flex items-center mb-4 text-sm user-meta">
         <x-posts.author :author="$comment->user" size="sm" />
         <span class="text-gray-900 dark:text-gray-200">. {{ $comment->created_at_diff }}</span>
@@ -32,7 +32,7 @@
     @if ($comment->child_comments_count)
         <div class="mt-4 ml-4">
             @foreach($comment->childComments as $childComment)
-                <livewire:comment-item :comment="$childComment" wire:key="comment-{{$childComment->id}}"/>
+                <livewire:comment-item :comment="$childComment" wire:key="comment-{{$comment->id}}-{{$childComment->id}}"/>
             @endforeach
         </div>
     @endif

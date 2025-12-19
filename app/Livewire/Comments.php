@@ -22,9 +22,9 @@ class Comments extends Component
     #[On('commentCreated')]
     #[On('commentDeleted')]
     #[On('commentUpdated')]
-    public function forceRefresh()
+    public function refreshComments(): void
     {
-        // This will re-render the component
+        $this->resetPage();
     }
 
     public function comments()

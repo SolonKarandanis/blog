@@ -12,13 +12,15 @@
             }
         }">
             <form wire:submit.prevent="createComment">
-            <textarea
-                x-ref="input"
-                @click="focused = true"
-                wire:model="body"
-                class="w-full rounded-lg p-4 bg-gray-50 dark:bg-gray-600 focus-outline-none text-sm text-gray-900 dark:text-gray-200 border-gray-200 placeholder:text-gray-400"
-                cols="30"
-                :rows="focused ? '7' : '1'"></textarea>
+                <textarea
+                    x-ref="input"
+                    @click="focused = true"
+                    wire:model="body"
+                    class="w-full rounded-lg p-4 bg-gray-50 dark:bg-gray-600 focus-outline-none text-sm text-gray-900 dark:text-gray-200 border-gray-200 placeholder:text-gray-400"
+                    cols="30"
+                    :rows="focused ? '7' : '1'">
+
+                </textarea>
                 <div :class="focused ? '' : 'hidden'">
                     <button
                         type="submit"

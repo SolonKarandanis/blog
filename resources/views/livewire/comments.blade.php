@@ -4,7 +4,7 @@
 
     <div class="px-3 py-2 mt-5 user-comments">
         @forelse($comments as $comment)
-            <livewire:comment-item :comment="$comment" />
+            <livewire:comment-item :comment="$comment" wire:key="comment-item-{{ $comment->id }}" />
         @empty
             <div class="text-center text-gray-900 dark:text-gray-200">
                 <span> No Comments Posted</span>
