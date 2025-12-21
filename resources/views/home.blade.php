@@ -24,7 +24,7 @@
                 <a class="mt-10 block text-center text-lg text-red-500 font-semibold"
                    href="{{route('posts.index')}}">{{__('home.more_posts')}}</a>
             </div>
-            <hr>
+            <hr class="h-px my-8 bg-gray-900 dark:bg-gray-100 border-0">
             <div class="mb-16">
                 <h2 class="mt-16 mb-5 text-3xl text-red-500 font-bold">{{__('home.latest_posts')}}</h2>
                 <div class="w-full mb-5">
@@ -37,7 +37,7 @@
                 <a class="mt-10 block text-center text-lg text-red-500 font-semibold"
                    href="{{route('posts.index')}}">{{__('home.more_posts')}}</a>
             </div>
-            <hr>
+            <hr class="h-px my-8 bg-gray-900 dark:bg-gray-100 border-0">
             <div class="mb-16">
                 <h2 class="mt-16 mb-5 text-3xl text-red-500 font-bold">{{__('home.recommended_posts')}}</h2>
                 <div class="w-full mb-5">

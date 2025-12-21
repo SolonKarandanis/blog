@@ -1,4 +1,4 @@
-<footer class="text-sm space-x-4 flex items-center border-t border-gray-100 flex-wrap justify-center py-4 ">
+<footer class="text-sm space-x-4 flex items-center border-t border-gray-900 dark:border-gray-100 flex-wrap justify-center py-4 ">
     <div class="flex space-x-4">
         @foreach (config('app.supported_locales') as $locale => $data)
             <x-nav-link href="{{ route('locale', $locale) }}" :active="app()->getLocale()=== $locale">

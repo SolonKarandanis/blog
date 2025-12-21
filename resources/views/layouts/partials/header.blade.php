@@ -1,4 +1,4 @@
-<nav class="flex items-center justify-between py-3 px-6 border-b border-gray-100">
+<nav class="flex items-center justify-between py-3 px-6 border-b border-gray-900 dark:border-gray-100">
     <div id="nav-left" class="flex items-center">
         <a href="{{route('home')}}">
             <x-application-mark class="block h-9 w-auto" />
