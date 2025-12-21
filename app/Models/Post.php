@@ -103,6 +103,12 @@ class Post extends Model
             ->withTimestamps();
     }
 
+    public function videos(): BelongsToMany
+    {
+        return $this->belongsToMany(Video::class, 'post_video', 'video_id', 'post_id')
+            ->withTimestamps();
+    }
+
     public function scopePublished($query){
         return $query->where('is_published',1);
     }
