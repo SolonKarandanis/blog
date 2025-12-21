@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Posts\Schemas;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -47,6 +48,18 @@ class PostForm
                             ->disk('public')
                             ->directory('posts/thumbnails')
                             ->visibility('public'),
+                        Repeater::make('videos_uploader')
+                            ->label('Videos')
+                            ->schema([
+                                FileUpload::make('path')
+                                    ->disk('public')
+                                    ->directory('videos')
+                                    ->visibility('public'),
+                                TextInput::make('title')
+                                    ->label('Video Title'),
+                            ])
+                            ->dehydrated(false) // IMPORTANT: This tells Filament not to try and save this to the 'posts' table directly
+                            ->columnSpanFull(),
                         DateTimePicker::make('published_at')->nullable(),
                         Checkbox::make('is_featured'),
                         Select::make('categories')
