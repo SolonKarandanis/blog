@@ -59,6 +59,8 @@ use Illuminate\Support\Str;
  * @property-read int|null $comments_count
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereMetaDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Post whereMetaTitle($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Video> $videos
+ * @property-read int|null $videos_count
  * @mixin \Eloquent
  */
 class Post extends Model
