@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Posts\Schemas;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
@@ -51,7 +52,9 @@ class PostForm
                         Repeater::make('videos_uploader')
                             ->label('Videos')
                             ->schema([
+                                Hidden::make('id'),
                                 FileUpload::make('path')
+                                    ->required()
                                     ->disk('public')
                                     ->directory('videos')
                                     ->visibility('public'),

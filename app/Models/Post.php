@@ -107,7 +107,7 @@ class Post extends Model
 
     public function videos(): BelongsToMany
     {
-        return $this->belongsToMany(Video::class, 'post_video', 'video_id', 'post_id')
+        return $this->belongsToMany(Video::class, 'post_video', 'post_id', 'video_id')
             ->withTimestamps();
     }
 

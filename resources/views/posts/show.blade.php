@@ -43,6 +43,24 @@
                 {!! $post->body !!}
             </div>
 
+            @if($post->videos->count() > 0)
+                <div class="article-videos py-3">
+                    <h2 class="text-2xl font-bold text-left text-gray-900 dark:text-gray-200">
+                        Videos
+                    </h2>
+                    <div class="mt-4 grid grid-cols-1 gap-4">
+                        @foreach($post->videos as $video)
+                            <div class="video-item">
+                                <video controls class="w-full rounded-lg">
+                                    <source src="{{ asset('storage/' . $video->path) }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
             <div class="flex items-center space-x-4 mt-10">
                 @foreach($post->categories as $category)
                     <x-posts.category-badge :category="$category" />

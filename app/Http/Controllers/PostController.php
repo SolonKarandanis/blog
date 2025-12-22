@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\PostView;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
