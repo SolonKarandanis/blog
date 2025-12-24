@@ -14,7 +14,7 @@ class CategoryForm
         return $schema
             ->components([
                 TextInput::make('title')
-                    ->live()
+                    ->live(onBlur: true)
                     ->required()->minLength(1)->maxLength(150)
                     ->afterStateUpdated(function (string $operation, $state, Set $set) {
                         if ($operation === 'edit') {
